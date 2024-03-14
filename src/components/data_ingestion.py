@@ -9,10 +9,14 @@ sys.path.append(parent_dir)
 from exception import CustomException
 from logger import logging
 from components.data_transformation import DataTransformation
+from components.model_trainer import ModelTrainer,ModelTrainingConfig
+
 import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split
 from dataclasses import dataclass
+from sklearn.impute import SimpleImputer
+imputer = SimpleImputer(strategy='mean')
 
 @dataclass
 class DataIngestionConfig:
@@ -32,6 +36,8 @@ class DataIngestion:
             df = df.drop_duplicates()
             df.reset_index(drop=True, inplace=True)
             df['Weight'] = df['Weight'].replace('?', np.nan)
+            imputer.fit(df[['Price']])
+            df['Price'] = imputer.transform(df[['Price']])
             logging.info("Read the dataset as dataframe")
             os.makedirs(os.path.dirname(self.ingestion_config.raw_data_path),exist_ok=True)
             df.to_csv(self.ingestion_config.raw_data_path,index=False,header=True)
@@ -52,4 +58,6 @@ if __name__ == "__main__":
     obj = DataIngestion()
     train_data,test_data = obj.initiate_data_ingestion()
     data_transformation = DataTransformation()
-    data_transformation.initiate_data_transformation(train_data,test_data)
+    train_arr,test_arr,_ = data_transformation.initiate_data_transformation(train_data,test_data)
+    model_trainer = ModelTrainer()
+    model_trainer.initiate_model_trainer(train_arr,test_arr)
