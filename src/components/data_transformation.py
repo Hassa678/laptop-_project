@@ -7,7 +7,7 @@ import pandas as pd
 from sklearn.compose import ColumnTransformer
 from sklearn.impute import SimpleImputer
 from sklearn.pipeline import Pipeline
-from sklearn.preprocessing import OneHotEncoder,StandardScaler
+from sklearn.preprocessing import OneHotEncoder,StandardScaler,FunctionTransformer
 
 parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir))
 
@@ -28,20 +28,28 @@ class DataTransformation:
         self.data_transformation_config = DataTransformationConfig()
     
     def get_data_transformer_object(self):
-        try :        
-            categorical_columns= ['Company', 'TypeName', 'Inches', 'ScreenResolution', 'Cpu', 'Ram',
-             'Memory', 'Gpu', 'OpSys', 'Weight']
+        try : 
+            numerical_columns = ['Ram', 'Inches', 'Weight']                       
+            logging.info("num columns is transformed")
+            num_pipeline = Pipeline(steps=[   
+            ('impute', SimpleImputer(strategy='median')),
+            ("scaler",StandardScaler(with_mean=False))
+            ])  
+                
+            categorical_columns = ['Company', 'TypeName', 'ScreenResolution', 'Cpu',
+                           'Memory', 'Gpu', 'OpSys']
             cat_pipeline = Pipeline(steps=[
             ('impute', SimpleImputer(strategy='most_frequent')),
-            ('one-hot',OneHotEncoder(handle_unknown='ignore', sparse=False)),
-            ("scaler",StandardScaler(with_mean=False))
+            ('one-hot', OneHotEncoder(handle_unknown='ignore', sparse=False)),
+            ("scaler", StandardScaler(with_mean=False))
             ])
-            logging.info(f'categorical columnes encoding completed:{categorical_columns}')
+            logging.info(f'Categorical columns encoding completed: {categorical_columns}')
             preprocessor = ColumnTransformer(transformers=[
-            ('cat_pipeline',cat_pipeline,categorical_columns)
-            ])
-            
+                ('cat_pipeline', cat_pipeline, categorical_columns),
+                ('num_pipeline', num_pipeline, numerical_columns)
+                ])
             return preprocessor
+
         
         except Exception as e:
             raise CustomException(e,sys)
@@ -60,6 +68,7 @@ class DataTransformation:
             input_feature_test_df = test_df.drop(target_column_name, axis=1)
             target_feature_test_df = test_df[target_column_name]
             logging.info("Aplluying preprocesssing object in test_df and train_df")
+            logging.info("Numerical columns transformed")
             
             input_feature_train_arr = preprocessor_obj.fit_transform(input_feature_train_df)
             input_feature_test_arr = preprocessor_obj.transform(input_feature_test_df)

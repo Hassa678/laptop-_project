@@ -1,0 +1,348 @@
+<html>
+<head>
+    <title>Laptop Price Prediction</title>
+</head>
+<body>
+    <div class="prediction">
+        <h1>Laptop Price Prediction</h1>
+   
+        <form action="{{ url_for('predict_')}}" method="post">
+            <h1><legend>Laptop Price Prediction</legend></h1>
+            
+            <div class="mb-3">
+                <label class="form-label">Company</label>
+                <select class="form-control" name="Company" required>
+                    <option class="placeholder" selected disabled value="">Select Company</option>
+                    <option value="Apple">Apple</option>
+                    <option value="HP">HP</option>
+                    <option value="Acer">Acer</option>
+                    <option value="Asus">Asus</option>
+                    <option value="Dell">Dell</option>
+                    <option value="Lenovo">Lenovo</option>
+                    <option value="Chuwi">Chuwi</option>
+                    <option value="MSI">MSI</option>
+                    <option value="Microsoft">Microsoft</option>
+                    <option value="Toshiba">Toshiba</option>
+                    <option value="Huawei">Huawei</option>
+                    <option value="Xiaomi">Xiaomi</option>
+                    <option value="Vero">Vero</option>
+                    <option value="Razer">Razer</option>
+                    <option value="Mediacom">Mediacom</option>
+                    <option value="Samsung">Samsung</option>
+                    <option value="Google">Google</option>
+                    <option value="Fujitsu">Fujitsu</option>
+                    <option value="LG">LG</option>
+                </select>
+            </div>           
+            <div class="mb-3">
+                <label class="form-label">Type Name</label>
+                <select class="form-control" name="TypeName" required>
+                    <option class="placeholder" selected disabled value="">Select Type Name</option>
+                    <option value="Ultrabook">Ultrabook</option>
+                    <option value="Notebook">Notebook</option>
+                    <option value="Gaming">Gaming</option>
+                    <option value="2 in 1 Convertible">2 in 1 Convertible</option>
+                    <option value="Workstation">Workstation</option>
+                    <option value="Netbook">Netbook</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Screen Resolution</label>
+                <select class="form-control" name="ScreenResolution" required>
+                    <option class="placeholder" selected disabled value="">Select Screen Resolution</option>
+                    <option value="IPS Panel Retina Display 2560x1600">IPS Panel Retina Display 2560x1600</option>
+                    <option value="1440x900">1440x900</option>
+                    <option value="Full HD 1920x1080">Full HD 1920x1080</option>
+                    <option value="IPS Panel Retina Display 2880x1800">IPS Panel Retina Display 2880x1800</option>
+                    <option value="1366x768">1366x768</option>
+                    <option value="IPS Panel Full HD 1920x1080">IPS Panel Full HD 1920x1080</option>
+                    <option value="IPS Panel Retina Display 2304x1440">IPS Panel Retina Display 2304x1440</option>
+                    <option value="IPS Panel Full HD / Touchscreen 1920x1080">IPS Panel Full HD / Touchscreen 1920x1080</option>
+                    <option value="Full HD / Touchscreen 1920x1080">Full HD / Touchscreen 1920x1080</option>
+                    <option value="Touchscreen / Quad HD+ 3200x1800">Touchscreen / Quad HD+ 3200x1800</option>
+                    <option value="Touchscreen 2256x1504">Touchscreen 2256x1504</option>
+                    <option value="Quad HD+ / Touchscreen 3200x1800">Quad HD+ / Touchscreen 3200x1800</option>
+                    <option value="IPS Panel 1366x768">IPS Panel 1366x768</option>
+                    <option value="IPS Panel 4K Ultra HD / Touchscreen 3840x2160">IPS Panel 4K Ultra HD / Touchscreen 3840x2160</option>
+                    <option value="IPS Panel Full HD 2160x1440">IPS Panel Full HD 2160x1440</option>
+                    <option value="4K Ultra HD / Touchscreen 3840x2160">4K Ultra HD / Touchscreen 3840x2160</option>
+                    <option value="1600x900">1600x900</option>
+                    <option value="IPS Panel 4K Ultra HD 3840x2160">IPS Panel 4K Ultra HD 3840x2160</option>
+                    <option value="4K Ultra HD 3840x2160">4K Ultra HD 3840x2160</option>
+                    <option value="Touchscreen 1366x768">Touchscreen 1366x768</option>
+                    <option value="Touchscreen 2560x1440">Touchscreen 2560x1440</option>
+                    <option value="IPS Panel Full HD 1366x768">IPS Panel Full HD 1366x768</option>
+                    <option value="IPS Panel 2560x1440">IPS Panel 2560x1440</option>
+                    <option value="IPS Panel Full HD 2560x1440">IPS Panel Full HD 2560x1440</option>
+                    <option value="IPS Panel Retina Display 2736x1824">IPS Panel Retina Display 2736x1824</option>
+                    <option value="Touchscreen 2400x1600">Touchscreen 2400x1600</option>
+                    <option value="2560x1440">2560x1440</option>
+                    <option value="IPS Panel Quad HD+ 2560x1440">IPS Panel Quad HD+ 2560x1440</option>
+                    <option value="IPS Panel Quad HD+ 3200x1800">IPS Panel Quad HD+ 3200x1800</option>
+                    <option value="IPS Panel Quad HD+ / Touchscreen 3200x1800">IPS Panel Quad HD+ / Touchscreen 3200x1800</option>
+                    <option value="IPS Panel Touchscreen 1366x768">IPS Panel Touchscreen 1366x768</option>
+                    <option value="1920x1080">1920x1080</option>
+                    <option value="IPS Panel Full HD 1920x1200">IPS Panel Full HD 1920x1200</option>
+                    <option value="IPS Panel Touchscreen / 4K Ultra HD 3840x2160">IPS Panel Touchscreen / 4K Ultra HD 3840x2160</option>
+                    <option value="IPS Panel Touchscreen 2560x1440">IPS Panel Touchscreen 2560x1440</option>
+                    <option value="Touchscreen / Full HD 1920x1080">Touchscreen / Full HD 1920x1080</option>
+                    <option value="Quad HD+ 3200x1800">Quad HD+ 3200x1800</option>
+                    <option value="IPS Panel Touchscreen 1920x1200">IPS Panel Touchscreen 1920x1200</option>
+                    <option value="Touchscreen / 4K Ultra HD 3840x2160">Touchscreen / 4K Ultra HD 3840x2160</option>
+                    <option value="IPS Panel Touchscreen 2400x1600">IPS Panel Touchscreen 2400x1600</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">CPU</label>
+                <select class="form-control" name="Cpu" required>
+                    <option class="placeholder" selected disabled value="">Select CPU</option>
+                    <option value="Intel Core i5 2.3GHz">Intel Core i5 2.3GHz</option>
+                    <option value="Intel Core i5 1.8GHz">Intel Core i5 1.8GHz</option>
+                    <option value="Intel Core i5 7200U 2.5GHz">Intel Core i5 7200U 2.5GHz</option>
+                    <option value="Intel Core i7 2.7GHz">Intel Core i7 2.7GHz</option>
+                    <option value="Intel Core i5 3.1GHz">Intel Core i5 3.1GHz</option>
+                    <option value="AMD A9-Series 9420 3GHz">AMD A9-Series 9420 3GHz</option>
+                    <option value="Intel Core i7 2.2GHz">Intel Core i7 2.2GHz</option>
+                    <option value="Intel Core i7 8550U 1.8GHz">Intel Core i7 8550U 1.8GHz</option>
+                    <option value="Intel Core i5 8250U 1.6GHz">Intel Core i5 8250U 1.6GHz</option>
+                    <option value="Intel Core i3 6006U 2GHz">Intel Core i3 6006U 2GHz</option>
+                    <option value="Intel Core i7 2.8GHz">Intel Core i7 2.8GHz</option>
+                    <option value="Intel Core M m3 1.2GHz">Intel Core M m3 1.2GHz</option>
+                    <option value="Intel Core i7 7500U 2.7GHz">Intel Core i7 7500U 2.7GHz</option>
+                    <option value="Intel Core i7 2.9GHz">Intel Core i7 2.9GHz</option>
+                    <option value="Intel Core i3 7100U 2.4GHz">Intel Core i3 7100U 2.4GHz</option>
+                    <option value="Intel Core i5 7300HQ 2.5GHz">Intel Core i5 7300HQ 2.5GHz</option>
+                    <option value="AMD E-Series E2-9000e 1.5GHz">AMD E-Series E2-9000e 1.5GHz</option>
+                    <option value="Intel Core i5 1.6GHz">Intel Core i5 1.6GHz</option>
+                    <option value="Intel Core i7 8650U 1.9GHz">Intel Core i7 8650U 1.9GHz</option>
+                    <option value="Intel Atom x5-Z8300 1.44GHz">Intel Atom x5-Z8300 1.44GHz</option>
+                    <option value="AMD E-Series E2-6110 1.5GHz">AMD E-Series E2-6110 1.5GHz</option>
+                    <option value="AMD A6-Series 9220 2.5GHz">AMD A6-Series 9220 2.5GHz</option>
+                    <option value="Intel Celeron Dual Core N3350 1.1GHz">Intel Celeron Dual Core N3350 1.1GHz</option>
+                    <option value="Intel Core i3 7130U 2.7GHz">Intel Core i3 7130U 2.7GHz</option>
+                    <option value="Intel Core i7 7700HQ 2.8GHz">Intel Core i7 7700HQ 2.8GHz</option>
+                    <option value="Intel Core i5 2.0GHz">Intel Core i5 2.0GHz</option>
+                    <option value="AMD Ryzen 1700 3GHz">AMD Ryzen 1700 3GHz</option>
+                    <option value="Intel Pentium Quad Core N4200 1.1GHz">Intel Pentium Quad Core N4200 1.1GHz</option>
+                    <option value="Intel Celeron Dual Core N3060 1.6GHz">Intel Celeron Dual Core N3060 1.6GHz</option>
+                    <option value="Intel Core i5 1.3GHz">Intel Core i5 1.3GHz</option>
+                    <option value="AMD FX 9830P 3GHz">AMD FX 9830P 3GHz</option>
+                    <option value="Intel Core i7 7560U 2.4GHz">Intel Core i7 7560U 2.4GHz</option>
+                    <option value="AMD E-Series 6110 1.5GHz">AMD E-Series 6110 1.5GHz</option>
+                    <option value="Intel Core i5 6200U 2.3GHz">Intel Core i5 6200U 2.3GHz</option>
+                    <option value="Intel Core M 6Y75 1.2GHz">Intel Core M 6Y75 1.2GHz</option>
+                    <option value="Intel Core i5 7500U 2.7GHz">Intel Core i5 7500U 2.7GHz</option>
+                    <option value="Intel Core i3 6006U 2.2GHz">Intel Core i3 6006U 2.2GHz</option>
+                    <option value="AMD A6-Series 9220 2.9GHz">AMD A6-Series 9220 2.9GHz</option>
+                    <option value="Intel Core i7 6920HQ 2.9GHz">Intel Core i7 6920HQ 2.9GHz</option>
+                    <option value="Intel Core i5 7Y54 1.2GHz">Intel Core i5 7Y54 1.2GHz</option>
+                    <option value="Intel Core i7 7820HK 2.9GHz">Intel Core i7 7820HK 2.9GHz</option>
+                    <option value="Intel Xeon E3-1505M V6 3GHz">Intel Xeon E3-1505M V6 3GHz</option>
+                    <option value="Intel Core i7 6500U 2.5GHz">Intel Core i7 6500U 2.5GHz</option>
+                    <option value="AMD E-Series 9000e 1.5GHz">AMD E-Series 9000e 1.5GHz</option>
+                    <option value="AMD A10-Series A10-9620P 2.5GHz">AMD A10-Series A10-9620P 2.5GHz</option>
+                    <option value="AMD A6-Series A6-9220 2.5GHz">AMD A6
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Memory</label>
+                <select class="form-control" name="Memory" required>
+                    <option class="placeholder" selected disabled value="">Select Memory</option>
+                    <option value="128GB SSD">128GB SSD</option>
+                    <option value="128GB Flash Storage">128GB Flash Storage</option>
+                    <option value="256GB SSD">256GB SSD</option>
+                    <option value="512GB SSD">512GB SSD</option>
+                    <option value="500GB HDD">500GB HDD</option>
+                    <option value="256GB Flash Storage">256GB Flash Storage</option>
+                    <option value="1TB HDD">1TB HDD</option>
+                    <option value="128GB SSD + 1TB HDD">128GB SSD + 1TB HDD</option>
+                    <option value="256GB SSD + 256GB SSD">256GB SSD + 256GB SSD</option>
+                    <option value="64GB Flash Storage">64GB Flash Storage</option>
+                    <option value="32GB Flash Storage">32GB Flash Storage</option>
+                    <option value="256GB SSD + 1TB HDD">256GB SSD + 1TB HDD</option>
+                    <option value="256GB SSD + 2TB HDD">256GB SSD + 2TB HDD</option>
+                    <option value="32GB SSD">32GB SSD</option>
+                    <option value="2TB HDD">2TB HDD</option>
+                    <option value="64GB SSD">64GB SSD</option>
+                    <option value="1.0TB Hybrid">1.0TB Hybrid</option>
+                    <option value="512GB SSD + 1TB HDD">512GB SSD + 1TB HDD</option>
+                    <option value="1TB SSD">1TB SSD</option>
+                    <option value="256GB SSD + 500GB HDD">256GB SSD + 500GB HDD</option>
+                    <option value="128GB SSD + 2TB HDD">128GB SSD + 2TB HDD</option>
+                    <option value="512GB SSD + 512GB SSD">512GB SSD + 512GB SSD</option>
+                    <option value="16GB SSD">16GB SSD</option>
+                    <option value="16GB Flash Storage">16GB Flash Storage</option>
+                    <option value="512GB SSD + 256GB SSD">512GB SSD + 256GB SSD</option>
+                    <option value="512GB SSD + 2TB HDD">512GB SSD + 2TB HDD</option>
+                    <option value="64GB Flash Storage + 1TB HDD">64GB Flash Storage + 1TB HDD</option>
+                    <option value="180GB SSD">180GB SSD</option>
+                    <option value="1TB HDD + 1TB HDD">1TB HDD + 1TB HDD</option>
+                    <option value="32GB HDD">32GB HDD</option>
+                    <option value="1TB SSD + 1TB HDD">1TB SSD + 1TB HDD</option>
+                    <option value="512GB Flash Storage">512GB Flash Storage</option>
+                    <option value="128GB HDD">128GB HDD</option>
+                    <option value="240GB SSD">240GB SSD</option>
+                    <option value="8GB SSD">8GB SSD</option>
+                    <option value="508GB Hybrid">508GB Hybrid</option>
+                    <option value="1.0TB HDD">1.0TB HDD</option>
+                    <option value="512GB SSD + 1.0TB Hybrid">512GB SSD + 1.0TB Hybrid</option>
+                    <option value="256GB SSD + 1.0TB Hybrid">256GB SSD + 1.0TB Hybrid</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">GPU</label>
+                <select class="form-control" name="Gpu" required>
+                    <option class="placeholder" selected disabled value="">Select GPU</option>
+                    <option value="Intel Iris Plus Graphics 640">Intel Iris Plus Graphics 640</option>
+                    <option value="Intel HD Graphics 6000">Intel HD Graphics 6000</option>
+                    <option value="Intel HD Graphics 620">Intel HD Graphics 620</option>
+                    <option value="AMD Radeon Pro 455">AMD Radeon Pro 455</option>
+                    <option value="Intel Iris Plus Graphics 650">Intel Iris Plus Graphics 650</option>
+                    <option value="AMD Radeon R5">AMD Radeon R5</option>
+                    <option value="Intel Iris Pro Graphics">Intel Iris Pro Graphics</option>
+                    <option value="Nvidia GeForce MX150">Nvidia GeForce MX150</option>
+                    <option value="Intel UHD Graphics 620">Intel UHD Graphics 620</option>
+                    <option value="Intel HD Graphics 520">Intel HD Graphics 520</option>
+                    <option value="AMD Radeon Pro 555">AMD Radeon Pro 555</option>
+                    <option value="AMD Radeon R5 M430">AMD Radeon R5 M430</option>
+                    <option value="Intel HD Graphics 615">Intel HD Graphics 615</option>
+                    <option value="AMD Radeon Pro 560">AMD Radeon Pro 560</option>
+                    <option value="Nvidia GeForce 940MX">Nvidia GeForce 940MX</option>
+                    <option value="Nvidia GeForce GTX 1050">Nvidia GeForce GTX 1050</option>
+                    <option value="AMD Radeon R2">AMD Radeon R2</option>
+                    <option value="AMD Radeon 530">AMD Radeon 530</option>
+                    <option value="Nvidia GeForce 930MX">Nvidia GeForce 930MX</option>
+                    <option value="Intel HD Graphics">Intel HD Graphics</option>
+                    <option value="Intel HD Graphics 500">Intel HD Graphics 500</option>
+                    <option value="Nvidia GeForce GTX 1060">Nvidia GeForce GTX 1060</option>
+                    <option value="Nvidia GeForce 150MX">Nvidia GeForce 150MX</option>
+                    <option value="Intel Iris Graphics 540">Intel Iris Graphics 540</option>
+                    <option value="AMD Radeon RX 580">AMD Radeon RX 580</option>
+                    <option value="Nvidia GeForce 920MX">Nvidia GeForce 920MX</option>
+                    <option value="AMD Radeon R4 Graphics">AMD Radeon R4 Graphics</option>
+                    <option value="AMD Radeon 520">AMD Radeon 520</option>
+                    <option value="Nvidia GeForce GTX 1070">Nvidia GeForce GTX 1070</option>
+                    <option value="Nvidia GeForce GTX 1050 Ti">Nvidia GeForce GTX 1050 Ti</option>
+                    <option value="Intel HD Graphics 400">Intel HD Graphics 400</option>
+                    <option value="Nvidia GeForce MX130">Nvidia GeForce MX130</option>
+                    <option value="AMD R4 Graphics">AMD R4 Graphics</option>
+                    <option value="Nvidia GeForce GTX 940MX">Nvidia GeForce GTX 940MX</option>
+                    <option value="AMD Radeon RX 560">AMD Radeon RX 560</option>
+                    <option value="Nvidia GeForce 920M">Nvidia GeForce 920M</option>
+                    <option value="AMD Radeon R7 M445">AMD Radeon R7 M445</option>
+                    <option value="AMD Radeon RX 550">AMD Radeon RX 550</option>
+                    <option value="Nvidia GeForce GTX 1050M">Nvidia GeForce GTX 1050M</option>
+                    <option value="Intel HD Graphics 515">Intel HD Graphics 515</option>
+                    <option value="AMD Radeon R5 M420">AMD Radeon R5 M420</option>
+                    <option value="Intel HD Graphics 505">Intel HD Graphics 505</option>
+                    <option value="Nvidia GTX 980 SLI">Nvidia GTX 980 SLI</option>
+                    <option value="AMD R17M-M1-70">AMD R17M-M1-70</option>
+                    <option value="Nvidia GeForce GTX 1080">Nvidia GeForce GTX 1080</option>
+                    <option value="Nvidia Quadro M1200">Nvidia Quadro M1200</option>
+                    <option value="Nvidia GeForce GTX 950M">Nvidia GeForce GTX 950M</option>
+                    <option value="AMD FirePro W4190M">AMD FirePro W4190M</option>
+                    <option value="Nvidia GeForce GTX 980M">Nvidia GeForce GTX 980M</option>
+                    <option value="Intel Iris Graphics 550">Intel Iris Graphics 550</option>
+                    <option value="Nvidia GeForce 930M">Nvidia GeForce 930M</option>
+                    <option value="Intel HD Graphics 630">Intel HD Graphics 630</option>
+                    <option value="AMD Radeon R5 430">AMD Radeon R5 430</option>
+                    <option value="Nvidia GeForce GTX 940M">Nvidia GeForce GTX 940M</option>
+                    <option value="Intel HD Graphics 510">Intel HD Graphics 510</option>
+                    <option value="Intel HD Graphics 405">Intel HD Graphics 405</option>
+                    <option value="AMD Radeon RX 540">AMD Radeon RX 540</option>
+                    <option value="Nvidia GeForce GT 940MX">Nvidia GeForce GT 940MX</option>
+                    <option value="AMD FirePro W5130M">AMD FirePro W5130M</option>
+                    <option value="Nvidia Quadro M2200M">Nvidia Quadro M2200M</option>
+                    <option value="AMD Radeon R4">AMD Radeon R4</option>
+                    <option value="Nvidia Quadro M620">Nvidia Quadro M620</option>
+                    <option value="AMD Radeon R7 M460">AMD Radeon R7 M460</option>
+                    <option value="Intel HD Graphics 530">Intel HD Graphics 530</option>
+                    <option value="Nvidia GeForce GTX 965M">Nvidia GeForce GTX 965M</option>
+                    <option value="Nvidia GeForce GTX1080">Nvidia GeForce GTX1080</option>
+                    <option value="Nvidia GeForce GTX1050 Ti">Nvidia GeForce GTX1050 Ti</option>
+                    <option value="Nvidia GeForce GTX 960M">Nvidia GeForce GTX 960M</option>
+                    <option value="AMD Radeon R2 Graphics">AMD Radeon R2 Graphics</option>
+                    <option value="Nvidia Quadro M620M">Nvidia Quadro M620M</option>
+                    <option value="Nvidia GeForce GTX 970M">Nvidia GeForce GTX 970M</option>
+                    <option value="Nvidia GeForce GTX 960">Nvidia GeForce GTX 960</option>
+                    <option value="Intel Graphics 620">Intel Graphics 620</option>
+                    <option value="Nvidia GeForce GTX 960">Nvidia GeForce GTX 960</option>
+                    <option value="AMD Radeon R5 520">AMD Radeon R5 520</option>
+                    <option value="AMD Radeon R7 M440">AMD Radeon R7 M440</option>
+                    <option value="AMD Radeon R7">AMD Radeon R7</option>
+                    <option value="Nvidia Quadro M520M">Nvidia Quadro M520M</option>
+                    <option value="Nvidia Quadro M2200">Nvidia Quadro M2200</option>
+                    <option value="Nvidia Quadro M2000M">Nvidia Quadro M2000M</option>
+                    <option value="Intel HD Graphics 540">Intel HD Graphics 540</option>
+                    <option value="Nvidia Quadro M1000M">Nvidia Quadro M1000M</option>
+                    <option value="AMD Radeon 540">AMD Radeon 540</option>
+                    <option value="Nvidia GeForce GTX 1070M">Nvidia GeForce GTX 1070M</option>
+                    <option value="Nvidia GeForce GTX 1060">Nvidia GeForce GTX 1060</option>
+                    <option value="Intel HD Graphics 5300">Intel HD Graphics 5300</option>
+                    <option value="AMD Radeon R5 M420X">AMD Radeon R5 M420X</option>
+                    <option value="AMD Radeon R7 Graphics">AMD Radeon R7 Graphics</option>
+                    <option value="Nvidia GeForce 920">Nvidia GeForce 920</option>
+                    <option value="Nvidia GeForce 940M">Nvidia GeForce 940M</option>
+                    <option value="Nvidia GeForce GTX 930MX">Nvidia GeForce GTX 930MX</option>
+                    <option value="AMD Radeon R7 M465">AMD Radeon R7 M465</option>
+                    <option value="AMD Radeon R3">AMD Radeon R3</option>
+                    <option value="Nvidia GeForce GTX 1050Ti">Nvidia GeForce GTX 1050Ti</option>
+                    <option value="AMD Radeon R7 M365X">AMD Radeon R7 M365X</option>
+                    <option value="AMD Radeon R9 M385">AMD Radeon R9 M385</option>
+                    <option value="Intel HD Graphics 620">Intel HD Graphics 620</option>
+                    <option value="Nvidia Quadro 3000M">Nvidia Quadro 3000M</option>
+                    <option value="Nvidia GeForce GTX 980">Nvidia GeForce GTX 980</option>
+                    <option value="AMD Radeon R5 M330">AMD Radeon R5 M330</option>
+                    <option value="AMD FirePro W4190M">AMD FirePro W4190M</option>
+                    <option value="AMD FirePro W6150M">AMD FirePro W6150M</option>
+                    <option value="AMD Radeon R5 M315">AMD Radeon R5 M315</option>
+                    <option value="Nvidia Quadro M500M">Nvidia Quadro M500M</option>
+                    <option value="AMD Radeon R7 M360">AMD Radeon R7 M360</option>
+                    <option value="Nvidia Quadro M3000M">Nvidia Quadro M3000M</option>
+                    <option value="Nvidia GeForce 960M">Nvidia GeForce 960M</option>
+                    <option value="ARM Mali T860 MP4">ARM Mali T860 MP4</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Operating System</label>
+                <select class="form-control" name="OpSys" required>
+                    <option class="placeholder" selected disabled value="">Select Operating System</option>
+                    <option value="macOS">macOS</option>
+                    <option value="No OS">No OS</option>
+                    <option value="Windows 10">Windows 10</option>
+                    <option value="Mac OS X">Mac OS X</option>
+                    <option value="Linux">Linux</option>
+                    <option value="Windows 10 S">Windows 10 S</option>
+                    <option value="Chrome OS">Chrome OS</option>
+                    <option value="Windows 7">Windows 7</option>
+                    <option value="Android">Android</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Laptop Weight</label>
+                <input class="form-control" type="number" name="Weight"
+                    placeholder="Enter your Laptop Weight" min='0' max='20' />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">RAM</label>
+                <input class="form-control" type="number" name="Ram"
+                    placeholder="Enter your Laptop RAM" min='0' max='100' />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Inches</label>
+                <input class="form-control" type="number" name="Inches"
+                    placeholder="Enter your Laptop size in Inches" min='0' max='100' />
+            </div>
+            <div class="mb-3">
+                <input class="btn btn-primary" type="submit" value="Predict your laptop's price" required />
+            </div>
+        </form>
+    <h2>
+        THE  prediction is {{results}}
+    </h2>
+    <body>
+</html>
+
+                        
+                                    
+                                                
